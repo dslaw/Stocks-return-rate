@@ -17,7 +17,9 @@ shinyUI(fluidPage(
 
             sliderInput(inputId = "p",
                         label = "Number of days to forecast:",
-                        min = 0, max = 10, value = 10)
+                        min = 0, max = 10, value = 10),
+
+            submitButton("Check stock")
         ),
 
         mainPanel(

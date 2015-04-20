@@ -66,11 +66,13 @@ shinyServer(function(input, output) {
             dat = dat$dat
             n = nrow(dat)
             pred = dat[(n - p + 1):n, c("Date", "Change")]
+            pred[["Change"]] = round(pred[["Change"]], 4)
             pred = t(pred)
             colnames(pred) = NULL
-            pred
+            rownames(pred) = c("Date", "Change (%)")
+            return(pred)
         } else {
-            NULL
+            return(NULL)
         }
     })
 
